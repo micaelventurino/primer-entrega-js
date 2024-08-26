@@ -1,27 +1,36 @@
 
+let nombreApellido;
 
-// Bucle para repetir el proceso hasta obtener una edad válida
+while (true) {
+    nombreApellido = prompt("Ingresa tu nombre");
 
-let edadValida = false; // Variable para controlar el bucle
+    if (nombreApellido === null || nombreApellido.trim() === "") {
+        alert("Por favor, introduce un nombre.");
+    } else {
+        break;
+    }
+}
+
+alert("Hola " + nombreApellido + ". A continuación vas a ingresar tu edad para calcular el año de nacimiento.");
+
+
+
+let edadValida = false; 
 
 while (!edadValida) {
-    // Solicitar la edad al usuario
     let edad = parseInt(prompt("Ingresa tu edad:"));
 
-    // Validar si la entrada es un número y si es válida
     if (edad > 0) {
-        // Edad válida
         let anoNacimiento = calcularAnoNacimiento(edad);
-        alert("Naciste en el año " + anoNacimiento + ".");
-        edadValida = true; // Salir del bucle
+        alert("Naciste en el año " + anoNacimiento + "... o quizá el año anterior :)");
+        edadValida = true;
     } else {
-        // Edad inválida
         alert("Por favor, introduce una edad válida.");
     }
 }
 
 function calcularAnoNacimiento(edad) {
-    let anoActual = 2024; // Año actual
-    let anoNacimiento = anoActual - edad; // Cálculo del año de nacimiento
+    let anoActual = 2024;
+    let anoNacimiento = anoActual - edad;
     return anoNacimiento;
 }
